@@ -4,18 +4,21 @@
 
 from base_caching import BaseCaching
 
+
 class FIFOCache(BaseCaching):
     """
     FIFOCache is a caching system that implements a First-In-First-Out (FIFO)
     algorithm for cache eviction.
 
     Attributes:
-        order (list): A list to keep track of the order of keys for FIFO eviction.
+        order (list): A list to keep track of the order
+        of keys for FIFO eviction.
     """
 
     def __init__(self):
         """
-        Initializes the FIFOCache class, calling the parent class's __init__ method
+        Initializes the FIFOCache class,
+        calling the parent class's __init__ method
         and initializing an empty order list to manage FIFO order.
         """
         super().__init__()
