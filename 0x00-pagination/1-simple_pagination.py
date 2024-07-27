@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+""" Task 1: Implementing Pagination """
+
 import csv
 from typing import List, Tuple
 
