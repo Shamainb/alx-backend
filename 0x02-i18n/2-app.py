@@ -2,11 +2,15 @@
 """
 Task 2 answer
 """
-from flask import Flask, render_template
+from flask import (
+    Flask,
+    render_template,
+    request
+)
 from flask_babel import Babel
 
 
-class Config:
+class Config(object):
     """
     Configuration for Babel
     """
@@ -17,14 +21,24 @@ class Config:
 
 app = Flask(__name__)
 app.config.from_object(Config)
-
 babel = Babel(app)
 
 
-@app.route('/')
+@babel.localeselector
+def get_locale():
+    """
+    Select and return best language match based on supported languages
+    """
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+
+@app.route('/', strict_slashes=False)
 def index() -> str:
-    return render_template('index.html')
+    """
+    Handles / route
+    """
+    return render_template('2-index.html')
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(port="5000", host="0.0.0.0", debug=True)
