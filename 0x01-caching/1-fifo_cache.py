@@ -5,6 +5,11 @@ from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
+     """
+    FIFOCache defines a FIFO caching system
+    """
+
+
     def __init__(self):
         super().__init__()
         self.order = []
