@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""Task one answer """
+
+
 def index_range(page: int, page_size: int) -> tuple:
     """
     Calculate the start and end indexes for a given page and page size.
