@@ -5,11 +5,6 @@ from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
-     """
-    FIFOCache defines a FIFO caching system
-    """
-
-
     def __init__(self):
         super().__init__()
         self.order = []
@@ -17,7 +12,7 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         if key is None or item is None:
             return
-
+        
         if key in self.cache_data:
             self.order.remove(key)
         elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
